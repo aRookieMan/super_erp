@@ -150,10 +150,9 @@ DROP TABLE IF EXISTS `tb_order`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tb_order` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `production_type` varchar(20) DEFAULT NULL,
-  `amount` int(11) DEFAULT NULL,
+  `customer_name` varchar(20) DEFAULT NULL,
+  `customer_phone` varchar(30) DEFAULT NULL,
   `start_date` varchar(20) DEFAULT NULL,
-  `end_date` varchar(20) DEFAULT NULL,
   `valid_code` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -169,6 +168,32 @@ LOCK TABLES `tb_order` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tb_order_detail`
+--
+
+DROP TABLE IF EXISTS `tb_order_detail`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tb_order_detail` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_type` varchar(20) DEFAULT NULL,
+  `amount` int(11) DEFAULT NULL,
+  `end_date` varchar(20) DEFAULT NULL,
+  `order_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tb_order_detail`
+--
+
+LOCK TABLES `tb_order_detail` WRITE;
+/*!40000 ALTER TABLE `tb_order_detail` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_order_detail` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tb_product_information`
 --
 
@@ -178,6 +203,7 @@ DROP TABLE IF EXISTS `tb_product_information`;
 CREATE TABLE `tb_product_information` (
   `product_type` varchar(20) DEFAULT NULL,
   `material_id` int(11) NOT NULL,
+  `cost` int(11) DEFAULT NULL,
   PRIMARY KEY (`material_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -251,7 +277,6 @@ DROP TABLE IF EXISTS `tb_production_plan`;
 CREATE TABLE `tb_production_plan` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `plan_date` varchar(20) DEFAULT NULL,
-  `order_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -289,13 +314,13 @@ LOCK TABLES `tb_production_record` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tb_pruchase_plan`
+-- Table structure for table `tb_purchase_plan`
 --
 
-DROP TABLE IF EXISTS `tb_pruchase_plan`;
+DROP TABLE IF EXISTS `tb_purchase_plan`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tb_pruchase_plan` (
+CREATE TABLE `tb_purchase_plan` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `material_id` int(11) DEFAULT NULL,
   `material_amount` int(11) DEFAULT NULL,
@@ -307,12 +332,12 @@ CREATE TABLE `tb_pruchase_plan` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tb_pruchase_plan`
+-- Dumping data for table `tb_purchase_plan`
 --
 
-LOCK TABLES `tb_pruchase_plan` WRITE;
-/*!40000 ALTER TABLE `tb_pruchase_plan` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tb_pruchase_plan` ENABLE KEYS */;
+LOCK TABLES `tb_purchase_plan` WRITE;
+/*!40000 ALTER TABLE `tb_purchase_plan` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_purchase_plan` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -326,6 +351,7 @@ CREATE TABLE `tb_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_name` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,
+  `role` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -424,4 +450,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-17 10:24:05
+-- Dump completed on 2018-12-21 11:28:21
