@@ -1,0 +1,13 @@
+2018.12.23
+ALTER TABLE tb_product_information ADD BG INT NULL;
+ALTER TABLE tb_product_information ADD PG INT NULL;
+ALTER TABLE tb_product_information ADD MB INT NULL;
+ALTER TABLE tb_product_information ADD MC INT NULL;
+ALTER TABLE tb_product_information ADD HD INT NULL;
+ALTER TABLE tb_product_information ADD CPU INT NULL;
+ALTER TABLE tb_product_information DROP material_id;
+ALTER TABLE tb_product_information DROP cost;
+ALTER TABLE tb_workline_capacity MODIFY workline_id INT(11) NOT NULL;
+ALTER TABLE tb_workline_capacity DROP PRIMARY KEY;
+ALTER TABLE tb_workline_capacity MODIFY workline_id VARCHAR(20);
+ALTER TABLE tb_workline_plan MODIFY workline_id VARCHAR(20);
