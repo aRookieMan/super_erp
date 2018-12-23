@@ -31,7 +31,7 @@ public interface WorklinePlanMapper {
             @Result(column = "product_amount",property = "productAmount"),
             @Result(column = "production_plan_id",property = "productionPlanId"),
 
-            @Result(property = "orderDetails",column = "id",many =
+            @Result(property = "materialPlans",column = "id",many =
             @Many(select = "scut.bigproject.super_erp.mapper.MaterialPlanMapper.findWorklinePlanIdByWorklinePlanId"))
     })
     List<WorklinePlan> findWorklinePlanByProductionPlanId(@Param("productionPlanId") int productionPlanId);

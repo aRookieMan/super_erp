@@ -22,7 +22,7 @@ public interface ProductionPlanMapper {
             @Result(id=true,column = "id",property = "id"),
             @Result(column = "plan_date",property = "planDate"),
 
-            @Result(property = "orderDetails",column = "id",many =
+            @Result(property = "worklinePlans",column = "id",many =
             @Many(select = "scut.bigproject.super_erp.mapper.WorklinePlanMapper.findWorklinePlanByProductionPlanId"))
     })
     List<ProductionPlan> findProductionPlanByDate(@Param("planDate") String planDate);
