@@ -1,11 +1,22 @@
 package scut.bigproject.super_erp.entity;
 
+import java.util.List;
+
 public class WorklinePlan {
     private int id;
-    private int worklineId;
+    private String worklineId;
     private String productType;
     private int productAmount;
     private int productionPlanId;
+    private List<MaterialPlan> materialPlans;
+
+    public List<MaterialPlan> getMaterialPlans() {
+        return materialPlans;
+    }
+
+    public void setMaterialPlans(List<MaterialPlan> materialPlans) {
+        this.materialPlans = materialPlans;
+    }
 
     public int getId() {
         return id;
@@ -15,11 +26,11 @@ public class WorklinePlan {
         this.id = id;
     }
 
-    public int getWorklineId() {
+    public String getWorklineId() {
         return worklineId;
     }
 
-    public void setWorklineId(int worklineId) {
+    public void setWorklineId(String worklineId) {
         this.worklineId = worklineId;
     }
 

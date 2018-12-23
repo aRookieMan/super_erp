@@ -1,15 +1,15 @@
 package scut.bigproject.super_erp.entity;
 
 public class WorklineCapacity {
-    private int worklineId;
+    private String worklineId;
     private String productType;
     private int ableAmount;
 
-    public int getWorklineId() {
+    public String getWorklineId() {
         return worklineId;
     }
 
-    public void setWorklineId(int worklineId) {
+    public void setWorklineId(String worklineId) {
         this.worklineId = worklineId;
     }
 

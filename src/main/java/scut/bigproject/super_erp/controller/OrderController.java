@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import scut.bigproject.super_erp.entity.Order;
 import scut.bigproject.super_erp.entity.OrderDetail;
-import scut.bigproject.super_erp.mapper.OrderDetailMapper;
 import scut.bigproject.super_erp.service.OrderService;
 import scut.bigproject.super_erp.util.EntityUtil;
 
