@@ -6,6 +6,10 @@ import org.springframework.web.bind.annotation.*;
 import scut.bigproject.super_erp.entity.Order;
 import scut.bigproject.super_erp.entity.OrderDetail;
 import scut.bigproject.super_erp.service.OrderService;
+import scut.bigproject.super_erp.util.EntityUtil;
+
+import java.util.Map;
+
 
 @Controller
 @RequestMapping(value = "/order")
@@ -14,20 +18,24 @@ public class OrderController {
     OrderService orderService;
 
     /***
-     * 插入订单，
-     * @param order
+     * 插入订单
+     * @param map
      * @return
      */
     @RequestMapping(value = "/insertOrder",method = RequestMethod.POST)
     @ResponseBody
-    public Object insertOrder(@RequestBody Order order,
-                              @RequestBody OrderDetail orderDetail){
+    public Object insertOrder(@RequestBody Map<String,Object> map){
+        Order order = EntityUtil.object2Entity(map.get("order"), Order.class);
+        OrderDetail orderDetail = EntityUtil.object2Entity(map.get("orderDetail"), OrderDetail.class);
+
+        System.out.println(order);
+        System.out.println(orderDetail);
         return orderService.insertOrder(order, orderDetail);
     }
 
 
     /***
-     * 只是一个普通的get请求
+     * 查询订单
      * @param id
      * @return
      */

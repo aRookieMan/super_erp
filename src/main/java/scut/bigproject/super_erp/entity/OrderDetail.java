@@ -46,4 +46,15 @@ public class OrderDetail {
     public void setOrderId(int order_id) {
         this.order_id = order_id;
     }
+
+    @Override
+    public String toString() {
+        return "OrderDetail{" +
+                "id=" + id +
+                ", product_type='" + product_type + '\'' +
+                ", amount=" + amount +
+                ", end_date='" + end_date + '\'' +
+                ", order_id=" + order_id +
+                '}';
+    }
 }

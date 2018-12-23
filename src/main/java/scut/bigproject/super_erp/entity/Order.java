@@ -57,4 +57,16 @@ public class Order{
     public void setOrderDetails(ArrayList<OrderDetail> orderDetails) {
         this.orderDetails = orderDetails;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", customer_name='" + customer_name + '\'' +
+                ", customer_phone='" + customer_phone + '\'' +
+                ", start_date='" + start_date + '\'' +
+                ", valid_code=" + valid_code +
+                ", orderDetails=" + orderDetails +
+                '}';
+    }
 }
