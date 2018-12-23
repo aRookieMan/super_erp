@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import scut.bigproject.super_erp.entity.Order;
 import scut.bigproject.super_erp.entity.OrderDetail;
+import scut.bigproject.super_erp.mapper.OrderDetailMapper;
 import scut.bigproject.super_erp.service.OrderService;
 import scut.bigproject.super_erp.util.EntityUtil;
 
@@ -36,9 +37,9 @@ public class OrderController {
      * @param id
      * @return
      */
-    @RequestMapping(value = "/find",method = RequestMethod.GET)
+    @RequestMapping(value = "/findOrderById",method = RequestMethod.GET)
     @ResponseBody
-    public Object tutorial(@RequestParam(value = "id", required = true) int id){
-        return orderService.findOrder(id);
+    public Object findOrderById(@RequestParam(value = "id", required = true) int id){
+        return orderService.findOrderById(id);
     }
 }

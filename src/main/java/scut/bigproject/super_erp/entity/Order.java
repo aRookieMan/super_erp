@@ -1,14 +1,15 @@
 package scut.bigproject.super_erp.entity;
 
-import java.util.ArrayList;
+
+import java.util.List;
 
 public class Order{
     private int id;
-    private String customer_name;
-    private String customer_phone;
-    private String start_date;
-    private int valid_code;
-    private ArrayList<OrderDetail> orderDetails;
+    private String customerName;
+    private String customerPhone;
+    private String startDate;
+    private int validCode;
+    private List<OrderDetail> orderDetails;
 
     public int getId() {
         return id;
@@ -19,54 +20,42 @@ public class Order{
     }
 
     public String getCustomerName() {
-        return customer_name;
+        return customerName;
     }
 
     public void setCustomerName(String customerName) {
-        this.customer_name = customer_name;
+        this.customerName = customerName;
     }
 
     public String getCustomerPhone() {
-        return customer_phone;
+        return customerPhone;
     }
 
-    public void setCustomerPhone(String customer_phone) {
-        this.customer_phone = customer_phone;
+    public void setCustomerPhone(String customerPhone) {
+        this.customerPhone = customerPhone;
     }
 
     public String getStartDate() {
-        return start_date;
+        return startDate;
     }
 
-    public void setStartDate(String start_date) {
-        this.start_date = start_date;
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
     }
 
     public int getValidCode() {
-        return valid_code;
+        return validCode;
     }
 
-    public void setValidCode(int valid_code) {
-        this.valid_code = valid_code;
+    public void setValidCode(int validCode) {
+        this.validCode = validCode;
     }
 
-    public ArrayList<OrderDetail> getOrderDetails() {
+    public List<OrderDetail> getOrderDetails() {
         return orderDetails;
     }
 
-    public void setOrderDetails(ArrayList<OrderDetail> orderDetails) {
+    public void setOrderDetails(List<OrderDetail> orderDetails) {
         this.orderDetails = orderDetails;
-    }
-
-    @Override
-    public String toString() {
-        return "Order{" +
-                "id=" + id +
-                ", customer_name='" + customer_name + '\'' +
-                ", customer_phone='" + customer_phone + '\'' +
-                ", start_date='" + start_date + '\'' +
-                ", valid_code=" + valid_code +
-                ", orderDetails=" + orderDetails +
-                '}';
     }
 }

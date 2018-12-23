@@ -13,6 +13,13 @@ public class ResultUtil {
         return result;
     }
 
+    public static Result badResultReturner(String msg){
+        result.setStatus(1);
+        result.setMessage(msg);
+        result.setData(null);
+        return result;
+    }
+
     public static Result goodResultReturner(String msg, Object data){
         result.setStatus(0);
         result.setMessage(msg);

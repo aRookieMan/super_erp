@@ -2,10 +2,10 @@ package scut.bigproject.super_erp.entity;
 
 public class OrderDetail {
     private int id;
-    private String product_type;
+    private String productType;
     private int amount;
-    private String end_date;
-    private int order_id;
+    private String endDate;
+    private int orderId;
 
     public int getId() {
         return id;
@@ -16,11 +16,11 @@ public class OrderDetail {
     }
 
     public String getProductType() {
-        return product_type;
+        return productType;
     }
 
-    public void setProductType(String product_type) {
-        this.product_type = product_type;
+    public void setProductType(String productType) {
+        this.productType = productType;
     }
 
     public int getAmount() {
@@ -32,29 +32,18 @@ public class OrderDetail {
     }
 
     public String getEndDate() {
-        return end_date;
+        return endDate;
     }
 
-    public void setEndDate(String end_date) {
-        this.end_date = end_date;
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
     }
 
     public int getOrderId() {
-        return order_id;
+        return orderId;
     }
 
-    public void setOrderId(int order_id) {
-        this.order_id = order_id;
-    }
-
-    @Override
-    public String toString() {
-        return "OrderDetail{" +
-                "id=" + id +
-                ", product_type='" + product_type + '\'' +
-                ", amount=" + amount +
-                ", end_date='" + end_date + '\'' +
-                ", order_id=" + order_id +
-                '}';
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 }

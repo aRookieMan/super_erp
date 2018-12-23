@@ -1,20 +1,28 @@
 package scut.bigproject.super_erp.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import scut.bigproject.super_erp.entity.Order;
 import scut.bigproject.super_erp.entity.OrderDetail;
 import scut.bigproject.super_erp.entity.returnentity.Result;
+import scut.bigproject.super_erp.mapper.OrderDetailMapper;
 import scut.bigproject.super_erp.mapper.OrderMapper;
 import scut.bigproject.super_erp.service.OrderService;
+import scut.bigproject.super_erp.service.ProductAlgorithmService;
 import scut.bigproject.super_erp.util.ResultUtil;
 
 import javax.annotation.Resource;
 
 @Service
 public class OrderServiceImpl implements OrderService {
-
-    @Resource
+    @Autowired
     private OrderMapper orderMapper;
+    @Autowired
+    private OrderDetailMapper orderDetailMapper;
+
+    @Autowired
+    private ProductAlgorithmService productAlgorithmService;
+
     /**
      * 使用算法判断订单是否可以安排，如果可以就返回true，不可以就返回false
      * 无论返回哪个值都需要新建一条数据
@@ -24,13 +32,20 @@ public class OrderServiceImpl implements OrderService {
      */
     @Override
     public Result insertOrder(Order order, OrderDetail orderDetail) {
-        return ResultUtil.goodResultReturner();
+        boolean valid = productAlgorithmService.orderValid(order);
+        if (valid){
+            orderMapper.insertOrder(order);
+            orderDetail.setOrderId(order.getId());
+            orderDetailMapper.insertOrder(orderDetail);
+            return ResultUtil.goodResultReturner();
+        }else {
+            return ResultUtil.badResultReturner("order no avaliable");
+        }
     }
 
     @Override
-    public Result findOrder(int id){
-        Order order = orderMapper.findOrder(id);
-        order.setOrderDetails(orderMapper.getOrderDetails(id));
+    public Result findOrderById(int id){
+        Order order = orderMapper.findOrderById(id);
         return ResultUtil.goodResultReturner(order);
     }
 }

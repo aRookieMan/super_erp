@@ -9,5 +9,6 @@ public interface OrderService {
      *对应模块1，订单管理模块
      */
     Result insertOrder(Order order, OrderDetail orderDetail);
-    Result findOrder(int id);
+
+    Result findOrderById(int id);
 }
