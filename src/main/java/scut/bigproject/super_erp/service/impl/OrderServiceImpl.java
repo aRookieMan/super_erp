@@ -12,6 +12,7 @@ import scut.bigproject.super_erp.service.ProductAlgorithmService;
 import scut.bigproject.super_erp.util.ResultUtil;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -31,12 +32,14 @@ public class OrderServiceImpl implements OrderService {
      * @return
      */
     @Override
-    public Result insertOrder(Order order, OrderDetail orderDetail) {
+    public Result insertOrder(Order order, List<OrderDetail> orderDetails) {
         boolean valid = productAlgorithmService.orderValid(order);
         if (valid){
             orderMapper.insertOrder(order);
-            orderDetail.setOrderId(order.getId());
-            orderDetailMapper.insertOrder(orderDetail);
+            for (OrderDetail orderDetail : orderDetails) {
+                orderDetail.setOrderId(order.getId());
+                orderDetailMapper.insertOrder(orderDetail);
+            }
             return ResultUtil.goodResultReturner();
         }else {
             return ResultUtil.badResultReturner("order no avaliable");

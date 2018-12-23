@@ -8,6 +8,7 @@ import scut.bigproject.super_erp.entity.OrderDetail;
 import scut.bigproject.super_erp.service.OrderService;
 import scut.bigproject.super_erp.util.EntityUtil;
 
+import java.util.List;
 import java.util.Map;
 
 
@@ -26,8 +27,8 @@ public class OrderController {
     @ResponseBody
     public Object insertOrder(@RequestBody Map<String,Object> map){
         Order order = EntityUtil.object2Entity(map.get("order"), Order.class);
-        OrderDetail orderDetail = EntityUtil.object2Entity(map.get("orderDetail"), OrderDetail.class);
-        return orderService.insertOrder(order, orderDetail);
+        List<OrderDetail> orderDetails = EntityUtil.objectList2EntityList(map.get("orderDetails"), OrderDetail.class);
+        return orderService.insertOrder(order, orderDetails);
     }
 
 
