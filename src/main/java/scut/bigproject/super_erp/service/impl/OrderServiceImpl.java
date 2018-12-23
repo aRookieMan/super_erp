@@ -3,11 +3,16 @@ package scut.bigproject.super_erp.service.impl;
 import org.springframework.stereotype.Service;
 import scut.bigproject.super_erp.entity.Order;
 import scut.bigproject.super_erp.entity.OrderDetail;
+import scut.bigproject.super_erp.mapper.OrderMapper;
 import scut.bigproject.super_erp.service.OrderService;
+
+import javax.annotation.Resource;
 
 @Service
 public class OrderServiceImpl implements OrderService {
 
+    @Resource
+    private OrderMapper orderMapper;
     /**
      * 使用算法判断订单是否可以安排，如果可以就返回true，不可以就返回false
      * 无论返回哪个值都需要新建一条数据
@@ -18,5 +23,12 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public boolean insertOrder(Order order, OrderDetail orderDetail) {
         return true;
+    }
+
+    @Override
+    public Order findOrder(int id){
+        Order order = orderMapper.findOrder(id);
+        order.setOrderDetails(orderMapper.getOrderDetails(id));
+        return order;
     }
 }

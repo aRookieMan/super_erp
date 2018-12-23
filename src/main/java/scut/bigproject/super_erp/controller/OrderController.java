@@ -34,6 +34,6 @@ public class OrderController {
     @RequestMapping(value = "/find",method = RequestMethod.GET)
     @ResponseBody
     public Object tutorial(@RequestParam(value = "id", required = true) int id){
-        return 0;
+        return orderService.findOrder(id);
     }
 }
