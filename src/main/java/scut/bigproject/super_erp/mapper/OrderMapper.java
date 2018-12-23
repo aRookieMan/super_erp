@@ -10,11 +10,13 @@ import java.util.ArrayList;
 @Component(value = "orderMapper")
 public interface OrderMapper {
     @Insert("insert into tb_order(" +
+            "id," +
             "customer_name," +
             "customer_phone," +
             "start_date," +
             "valid_code" +
             ") value(" +
+            "0, " +
             "#{customer_name}," +
             "#{customer_phone}," +
             "#{start_date}," +

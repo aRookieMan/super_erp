@@ -2,12 +2,12 @@ package scut.bigproject.super_erp.entity;
 
 import java.util.ArrayList;
 
-public class Order {
+public class Order{
     private int id;
-    private String customerName;
-    private String customerPhone;
-    private String startDate;
-    private int validCode;
+    private String customer_name;
+    private String customer_phone;
+    private String start_date;
+    private int valid_code;
     private ArrayList<OrderDetail> orderDetails;
 
     public int getId() {
@@ -19,35 +19,35 @@ public class Order {
     }
 
     public String getCustomerName() {
-        return customerName;
+        return customer_name;
     }
 
     public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+        this.customer_name = customer_name;
     }
 
     public String getCustomerPhone() {
-        return customerPhone;
+        return customer_phone;
     }
 
-    public void setCustomerPhone(String customerPhone) {
-        this.customerPhone = customerPhone;
+    public void setCustomerPhone(String customer_phone) {
+        this.customer_phone = customer_phone;
     }
 
     public String getStartDate() {
-        return startDate;
+        return start_date;
     }
 
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
+    public void setStartDate(String start_date) {
+        this.start_date = start_date;
     }
 
     public int getValidCode() {
-        return validCode;
+        return valid_code;
     }
 
-    public void setValidCode(int validCode) {
-        this.validCode = validCode;
+    public void setValidCode(int valid_code) {
+        this.valid_code = valid_code;
     }
 
     public ArrayList<OrderDetail> getOrderDetails() {
