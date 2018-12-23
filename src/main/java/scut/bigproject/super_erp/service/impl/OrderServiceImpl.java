@@ -3,8 +3,10 @@ package scut.bigproject.super_erp.service.impl;
 import org.springframework.stereotype.Service;
 import scut.bigproject.super_erp.entity.Order;
 import scut.bigproject.super_erp.entity.OrderDetail;
+import scut.bigproject.super_erp.entity.returnentity.Result;
 import scut.bigproject.super_erp.mapper.OrderMapper;
 import scut.bigproject.super_erp.service.OrderService;
+import scut.bigproject.super_erp.util.ResultUtil;
 
 import javax.annotation.Resource;
 
@@ -21,14 +23,14 @@ public class OrderServiceImpl implements OrderService {
      * @return
      */
     @Override
-    public boolean insertOrder(Order order, OrderDetail orderDetail) {
-        return true;
+    public Result insertOrder(Order order, OrderDetail orderDetail) {
+        return ResultUtil.goodResultReturner();
     }
 
     @Override
-    public Order findOrder(int id){
+    public Result findOrder(int id){
         Order order = orderMapper.findOrder(id);
         order.setOrderDetails(orderMapper.getOrderDetails(id));
-        return order;
+        return ResultUtil.goodResultReturner(order);
     }
 }

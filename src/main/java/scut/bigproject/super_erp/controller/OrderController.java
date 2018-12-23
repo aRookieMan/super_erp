@@ -27,9 +27,6 @@ public class OrderController {
     public Object insertOrder(@RequestBody Map<String,Object> map){
         Order order = EntityUtil.object2Entity(map.get("order"), Order.class);
         OrderDetail orderDetail = EntityUtil.object2Entity(map.get("orderDetail"), OrderDetail.class);
-
-        System.out.println(order);
-        System.out.println(orderDetail);
         return orderService.insertOrder(order, orderDetail);
     }
 
