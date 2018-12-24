@@ -58,4 +58,16 @@ public class WorklineRecord {
     public void setMaterialRecords(ArrayList<MaterialRecord> materialRecords) {
         this.materialRecords = materialRecords;
     }
+
+    @Override
+    public String toString() {
+        return "WorklineRecord{" +
+                "id=" + id +
+                ", worklineId=" + worklineId +
+                ", productType='" + productType + '\'' +
+                ", productAmount=" + productAmount +
+                ", productionRecordId=" + productionRecordId +
+                ", materialRecords=" + materialRecords +
+                '}';
+    }
 }

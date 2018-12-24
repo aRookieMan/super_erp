@@ -11,7 +11,6 @@ import scut.bigproject.super_erp.service.OrderService;
 import scut.bigproject.super_erp.service.ProductAlgorithmService;
 import scut.bigproject.super_erp.util.ResultUtil;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 @Service
@@ -20,7 +19,6 @@ public class OrderServiceImpl implements OrderService {
     private OrderMapper orderMapper;
     @Autowired
     private OrderDetailMapper orderDetailMapper;
-
     @Autowired
     private ProductAlgorithmService productAlgorithmService;
 
